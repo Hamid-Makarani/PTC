@@ -1,226 +1,388 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pragati Tuition Classes | Quality Learning in Panvad</title>
-    <!-- Tailwind CSS for styling -->
+    <title>Pragati Tuition Classes | Fun Learning in Panvad</title>
+    <meta name="description" content="Pragati Tuition Classes offers a fun and quality learning experience for students from 1st to 10th standard in both Gujarati and English mediums.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Remix Icon for icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
             font-family: 'Poppins', sans-serif;
         }
-        /* Simple animation for sections */
-        .section-fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
         }
-        .section-fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .feature-card:hover {
+            transform: rotate(-2deg) scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .wavy-divider {
+            width: 100%;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .notice-pin {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: #f87171; /* red-400 */
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+         .notice-pin::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: #ef4444; /* red-500 */
+            border-radius: 50%;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-    <!-- Header & Navigation Bar -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+<body class="bg-amber-50 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600">
-                Pragati Tuition Classes
-            </a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About</a>
-                <a href="#features" class="text-gray-600 hover:text-blue-600 transition duration-300">Features</a>
-                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300">Enroll Now</a>
+            <a href="#" class="text-2xl font-bold text-orange-500">Pragati Tuition Classes</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="text-gray-600 hover:text-orange-500 font-medium transition">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-orange-500 font-medium transition">About</a>
+                <a href="#features" class="text-gray-600 hover:text-orange-500 font-medium transition">Features</a>
+                <a href="#results" class="text-gray-600 hover:text-orange-500 font-medium transition">Results</a>
+                <a href="#notices" class="text-gray-600 hover:text-orange-500 font-medium transition">Notices</a>
+                <a href="#contact" class="text-gray-600 hover:text-orange-500 font-medium transition">Contact</a>
             </div>
-             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-2xl">
-                <i class="ri-menu-line"></i>
+            <a href="#contact" class="hidden md:block bg-orange-500 text-white px-5 py-2.5 rounded-full font-bold hover:bg-orange-600 transition shadow-lg hover:shadow-xl">Enroll Now</a>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-4">
-            <a href="#home" class="block text-center py-2 text-gray-600 hover:text-blue-600">Home</a>
-            <a href="#about" class="block text-center py-2 text-gray-600 hover:text-blue-600">About</a>
-            <a href="#features" class="block text-center py-2 text-gray-600 hover:text-blue-600">Features</a>
-            <a href="#contact" class="block text-center py-2 text-gray-600 hover:text-blue-600">Enroll Now</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2">
+            <a href="#home" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-orange-50">Home</a>
+            <a href="#about" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-orange-50">About</a>
+            <a href="#features" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-orange-50">Features</a>
+            <a href="#results" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-orange-50">Results</a>
+            <a href="#notices" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-orange-50">Notices</a>
+            <a href="#contact" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-orange-50">Contact</a>
+            <div class="mt-2 px-4 pb-2">
+                 <a href="#contact" class="block w-full text-center bg-orange-500 text-white px-4 py-2 rounded-full font-bold hover:bg-orange-600 transition">Enroll Now</a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="relative bg-blue-500 text-white min-h-[60vh] flex items-center">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Unlock Your Child's Potential</h1>
-                <p class="text-xl md:text-2xl mb-2 font-light">"આજની મહેનત, કાલની પ્રગતિ."</p>
-                <p class="text-lg md:text-xl mb-8 font-light">Quality coaching for Std 1st to 10th in Gujarati & English Mediums.</p>
-                <a href="#contact" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition duration-300">Get Started Today</a>
-            </div>
-             <!-- You can replace this background image with a relevant one -->
-            <style>
-                #home {
-                    background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop');
-                    background-size: cover;
-                    background-position: center;
-                }
-            </style>
-        </section>
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-yellow-300 text-gray-800 flex items-center justify-center text-center overflow-hidden">
+        <div class="container mx-auto px-6 py-24 md:py-32 relative z-10 fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Let's Make Learning an Adventure!</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Welcome to a place where curiosity grows and every student shines bright.</p>
+            <a href="#features" class="bg-white text-orange-500 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition text-lg shadow-xl hover:shadow-2xl transform hover:scale-105">See the Fun!</a>
+        </div>
+        <!-- Decorative Shapes -->
+        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-yellow-400 rounded-full opacity-50"></div>
+        <div class="absolute -top-10 -right-10 w-52 h-52 bg-yellow-400 rounded-full opacity-50"></div>
+    </section>
+    
+    <!-- Wavy Divider -->
+    <div class="wavy-divider" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"%23FDE68A\" fill-opacity=\"1\" d=\"M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,202.7C960,203,1056,149,1152,133.3C1248,117,1344,139,1392,149.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z\"></path></svg>'); transform: rotate(180deg);"></div>
 
-        <!-- About Section -->
-        <section id="about" class="py-20 bg-white section-fade-in">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Meet Your Mentor</h2>
-                    <p class="text-gray-600 mt-2">Dedicated to nurturing young minds with passion and experience.</p>
-                </div>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/3 text-center">
-                        <!-- My Photo -->
-                        <img class="h-64 w-64 rounded-full object-cover mx-auto" src="my-photo.jpg" alt="Hamid Makarani">
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white section fade-in">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800">Meet Your Friendly Mentor</h2>
+                <p class="text-gray-600 mt-2">Guiding students with a smile and years of experience.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 text-center">
+                    <div class="p-2 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full inline-block shadow-lg">
+                        <img class="h-64 w-64 rounded-full object-cover border-4 border-white" src="my-photo.jpg" alt="Hamid Makarani, Director of Pragati Tuition Classes">
                     </div>
-                    <div class="md:w-2/3">
-                        <h3 class="text-2xl font-bold mb-3">Hamid Makarani</h3>
-                        <p class="text-gray-600 mb-6">With over 10 years of teaching experience, I am passionate about making learning an engaging and effective process for every student. My mission is to build a strong educational foundation for your child, ensuring they achieve not just good grades, but a deep understanding of subjects.</p>
-                        <div class="bg-blue-50 p-6 rounded-lg">
-                            <h4 class="font-semibold text-lg mb-3">Qualifications:</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li>M.A. (English)</li>
-                                <li>PGDCA (Computer)</li>
-                                <li>D.EL.Ed (P.T.C)</li>
-                                <li>AI & M.B.A (Pursuing)</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-3xl font-bold mb-3">Hamid Makarani</h3>
+                    <p class="text-gray-600 mb-6">With over 10 years of teaching experience, I love making learning exciting and easy to understand for every student. My goal is to build a strong foundation of knowledge and confidence that helps your child succeed in school and beyond!</p>
+                    <div class="bg-sky-100 p-6 rounded-2xl border-2 border-sky-200">
+                        <h4 class="font-bold text-xl mb-3 text-sky-800">My Qualifications:</h4>
+                        <ul class="list-none text-sky-700 space-y-2">
+                            <li class="flex items-center"><span class="text-yellow-500 mr-2">⭐</span> M.A. (English)</li>
+                            <li class="flex items-center"><span class="text-yellow-500 mr-2">⭐</span> PGDCA (Computer)</li>
+                            <li class="flex items-center"><span class="text-yellow-500 mr-2">⭐</span> D.EL.ED (P.T.C)</li>
+                            <li class="flex items-center"><span class="text-yellow-500 mr-2">⭐</span> AI & M.B.A (Pursuing)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Features Section -->
-        <section id="features" class="py-20 section-fade-in">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Why Choose Pragati Classes?</h2>
-                    <p class="text-gray-600 mt-2">We offer more than just lectures; we provide a complete learning ecosystem.</p>
+    <!-- Wavy Divider -->
+    <div class="wavy-divider" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"%23FFFFFF\" fill-opacity=\"1\" d=\"M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,202.7C960,203,1056,149,1152,133.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\"></path></svg>');"></div>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-amber-50 section fade-in">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">What Makes Us Special?</h2>
+                <p class="text-gray-600 mt-2">A magical mix of learning, care, and fun!</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center feature-card border-b-8 border-yellow-400">
+                    <div class="mb-4">
+                        <svg class="w-20 h-20 mx-auto text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Std 1st to 10th</h3>
+                    <p class="text-gray-600">Fun lessons for all subjects in both Gujarati and English mediums.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Feature Card 1 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-blue-600 mb-4"><i class="ri-user-heart-line"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Personal Attention</h3>
-                        <p class="text-gray-600">We ensure every student receives individual guidance to address their unique learning needs.</p>
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center feature-card border-b-8 border-orange-400">
+                    <div class="mb-4">
+                        <svg class="w-20 h-20 mx-auto text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.665-.535-1.2-1.2-1.2H5.7c-.665 0-1.2.535-1.2 1.2v11.825c0 .665.535 1.2 1.2 1.2h12.6c.665 0 1.2-.535 1.2-1.2V11.25a.75.75 0 00-1.5 0v6.837h-11.1V7.287h7.35a.75.75 0 00.75-.75z" /><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087a1.2 1.2 0 00-1.2-1.2h-1.2v1.2h1.2c.665 0 1.2-.535 1.2-1.2z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12.9 6.087H9.6a.6.6 0 00-.6.6v3.6a.6.6 0 00.6.6h3.3a.6.6 0 00.6-.6V6.687a.6.6 0 00-.6-.6z" /></svg>
                     </div>
-                     <!-- Feature Card 2 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-blue-600 mb-4"><i class="ri-seedling-line"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Special Care for Slow Learners</h3>
-                        <p class="text-gray-600">Extra support and tailored teaching methods to help every child catch up and build confidence.</p>
+                    <h3 class="text-2xl font-bold mb-2">Super Subjects</h3>
+                    <p class="text-gray-600">Extra magical coaching for English, Maths, and Science.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center feature-card border-b-8 border-sky-400">
+                    <div class="mb-4">
+                        <svg class="w-20 h-20 mx-auto text-sky-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     </div>
-                     <!-- Feature Card 3 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-blue-600 mb-4"><i class="ri-focus-3-line"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Focus on Key Subjects</h3>
-                        <p class="text-gray-600">Specialized coaching for English, Maths, and Science to build a strong core foundation.</p>
-                    </div>
-                     <!-- Feature Card 4 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-blue-600 mb-4"><i class="ri-task-line"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Regular Tests & Feedback</h3>
-                        <p class="text-gray-600">Weekly and monthly tests to track progress, identify weaknesses, and provide constructive feedback.</p>
-                    </div>
-                     <!-- Feature Card 5 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-blue-600 mb-4"><i class="ri-price-tag-3-line"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Affordable Price</h3>
-                        <p class="text-gray-600">Our goal is to provide high-quality education that is accessible and affordable for everyone.</p>
-                    </div>
-                     <!-- Feature Card 6 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-blue-600 mb-4"><i class="ri-translate-2"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Dual Mediums</h3>
-                        <p class="text-gray-600">We cater to both Gujarati and English medium students with equal expertise and care.</p>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Personal Attention</h3>
+                    <p class="text-gray-600">Every student is a star! We make sure everyone gets the help they need.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-white section-fade-in">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Admissions Are Open!</h2>
-                    <p class="text-gray-600 mt-2">Take the first step towards a brighter future for your child. Contact us today!</p>
-                </div>
-                <div class="max-w-4xl mx-auto bg-blue-50 p-8 md:p-12 rounded-xl shadow-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-                        <!-- Phone -->
-                        <div>
-                            <div class="text-4xl text-blue-600 mx-auto w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-md mb-4"><i class="ri-phone-line"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Phone</h3>
-                            <a href="tel:9601777746" class="text-gray-600 hover:text-blue-600 transition duration-300">96017 77746</a><br>
-                            <a href="tel:9904522095" class="text-gray-600 hover:text-blue-600 transition duration-300">99045 22095</a>
-                        </div>
-                        <!-- WhatsApp -->
-                         <div>
-                            <div class="text-4xl text-green-500 mx-auto w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-md mb-4"><i class="ri-whatsapp-line"></i></div>
-                            <h3 class="text-xl font-bold mb-2">WhatsApp</h3>
-                             <a href="https://wa.me/919601777746" target="_blank" class="text-gray-600 hover:text-green-500 transition duration-300">Chat with us</a>
-                        </div>
-                         <!-- Address -->
-                        <div class="md:col-span-2">
-                             <div class="text-4xl text-blue-600 mx-auto w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-md mb-4"><i class="ri-map-pin-line"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Address</h3>
-                            <p class="text-gray-600">Pragati Tuition Classes, Opps Dargah Sharif, Bariya Faliya, Panvad-391168</p>
-                        </div>
-                    </div>
+    <!-- NEW: Results Section -->
+    <section id="results" class="py-20 bg-white section fade-in">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">Check Your Progress!</h2>
+                <p class="text-gray-600 mt-2">Enter your Roll Number to see your latest test scores.</p>
+            </div>
+            <div class="max-w-md mx-auto bg-amber-50 p-8 rounded-2xl shadow-lg border-2 border-yellow-200">
+                <div class="flex space-x-4">
+                    <input type="text" id="rollNumberInput" placeholder="Enter Your Roll Number (e.g., 101)" class="w-full px-4 py-3 rounded-full border-2 border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                    <button id="checkResultBtn" class="bg-orange-500 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-lg">Check</button>
                 </div>
             </div>
-        </section>
-    </main>
+            <!-- Result Card Display Area -->
+            <div id="resultCard" class="max-w-2xl mx-auto mt-8 hidden">
+                <!-- This will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Wavy Divider -->
+    <div class="wavy-divider" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"%23FFFFFF\" fill-opacity=\"1\" d=\"M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,202.7C960,203,1056,149,1152,133.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\"></path></svg>'); transform: rotate(180deg);"></div>
+
+
+    <!-- NEW: Notice Board Section -->
+    <section id="notices" class="py-20 bg-amber-50 section fade-in">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold">What's New? (Notice Board)</h2>
+                <p class="text-gray-600 mt-2">Latest updates and announcements for our students.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Notice 1 -->
+                <div class="bg-yellow-200 p-8 pt-10 rounded-lg shadow-md relative transform -rotate-2">
+                    <div class="notice-pin"></div>
+                    <h3 class="text-xl font-bold mb-2 text-yellow-800">Diwali Vacation</h3>
+                    <p class="text-yellow-900">The classes will remain closed from 10th Nov to 15th Nov for Diwali celebrations. Happy Diwali to all!</p>
+                    <p class="text-xs text-yellow-700 mt-4 font-medium">Posted: 01-11-2025</p>
+                </div>
+                <!-- Notice 2 -->
+                <div class="bg-sky-200 p-8 pt-10 rounded-lg shadow-md relative transform rotate-1">
+                    <div class="notice-pin"></div>
+                    <h3 class="text-xl font-bold mb-2 text-sky-800">Unit Test Schedule</h3>
+                    <p class="text-sky-900">The monthly unit test for Maths and Science will be held on the 25th of October. Please prepare well.</p>
+                     <p class="text-xs text-sky-700 mt-4 font-medium">Posted: 15-10-2025</p>
+                </div>
+                <!-- Notice 3 -->
+                <div class="bg-green-200 p-8 pt-10 rounded-lg shadow-md relative transform -rotate-1">
+                    <div class="notice-pin"></div>
+                    <h3 class="text-xl font-bold mb-2 text-green-800">Parent-Teacher Meeting</h3>
+                    <p class="text-green-900">A parent-teacher meeting is scheduled for Saturday, 8th November, from 4 PM to 6 PM. Attendance is mandatory.</p>
+                     <p class="text-xs text-green-700 mt-4 font-medium">Posted: 28-10-2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white section fade-in">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">Ready to Join the Fun?</h2>
+                <p class="text-gray-600 mt-2">Admissions are open! Let's start this exciting journey together.</p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-amber-50 p-8 rounded-2xl shadow-lg border-2 border-yellow-200">
+                 <div class="grid md:grid-cols-2 gap-8 text-center">
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 text-orange-600">Phone / WhatsApp</h3>
+                        <p class="text-gray-700 text-lg">
+                            <a href="tel:9601777746" class="hover:underline">9601777746</a>
+                        </p>
+                         <p class="text-gray-700 text-lg">
+                            <a href="tel:9904522095" class="hover:underline">9904522095</a>
+                        </p>
+                    </div>
+                     <div>
+                        <h3 class="font-bold text-xl mb-2 text-orange-600">Our Clubhouse</h3>
+                        <p class="text-gray-700 text-lg">Opps Dargah Sharif, Bariya Faliya,<br>Panvad-391168</p>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <a href="https://wa.me/919601777746" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold hover:bg-green-600 transition inline-flex items-center text-lg shadow-xl transform hover:scale-105">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                        Enroll on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-orange-500 text-white py-8">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 Pragati Tuition Classes. All Rights Reserved.</p>
-            <p class="text-sm text-gray-400 mt-2">Designed to help students excel.</p>
+            <p class="font-bold">&copy; 2025 Pragati Tuition Classes. All Rights Reserved.</p>
+            <p class="text-sm text-orange-100 mt-2">Designed with ❤️ for our brilliant students.</p>
         </div>
     </footer>
 
     <script>
-        // Simple Intersection Observer for fade-in animations
-        const sections = document.querySelectorAll('.section-fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // Mobile Menu Toggle
+        // --- SCRIPT FOR MOBILE MENU ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-    </script>
+        
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
 
+        // --- SCRIPT FOR RESULT CHECKER ---
+        const checkResultBtn = document.getElementById('checkResultBtn');
+        const rollNumberInput = document.getElementById('rollNumberInput');
+        const resultCard = document.getElementById('resultCard');
+
+        // --- IMPORTANT: This is where you will update student data ---
+        // You can add more students here. Just follow the format.
+        const studentData = [
+            {
+                rollNumber: "101",
+                name: "Rohan Sharma",
+                class: "8th",
+                marks: {
+                    English: 85,
+                    Maths: 92,
+                    Science: 88,
+                    Gujarati: 78
+                },
+                teacherRemark: "Excellent progress, Rohan! Keep up the great work."
+            },
+            {
+                rollNumber: "102",
+                name: "Priya Patel",
+                class: "7th",
+                marks: {
+                    English: 90,
+                    Maths: 81,
+                    Science: 85,
+                    Gujarati: 92
+                },
+                teacherRemark: "Priya, your performance in Gujarati is outstanding. Well done!"
+            },
+            {
+                rollNumber: "103",
+                name: "Ayan Shaikh",
+                class: "9th",
+                marks: {
+                    English: 75,
+                    Maths: 78,
+                    Science: 72,
+                    Gujarati: 80
+                },
+                teacherRemark: "Good effort, Ayan. Let's focus more on Science next month."
+            }
+        ];
+
+        checkResultBtn.addEventListener('click', () => {
+            const rollNo = rollNumberInput.value.trim();
+            if (!rollNo) {
+                alert("Please enter a roll number.");
+                return;
+            }
+
+            const student = studentData.find(s => s.rollNumber === rollNo);
+            resultCard.classList.remove('hidden');
+
+            if (student) {
+                let marksHtml = '';
+                for (const subject in student.marks) {
+                    marksHtml += `<div class="flex justify-between py-2 border-b border-yellow-300">
+                                    <span class="font-medium">${subject}</span>
+                                    <span class="font-bold">${student.marks[subject]} / 100</span>
+                                  </div>`;
+                }
+
+                resultCard.innerHTML = `
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-4 border-sky-300">
+                        <h3 class="text-2xl font-bold text-center text-sky-800 mb-2">Progress Card</h3>
+                        <div class="text-center mb-6">
+                            <p class="text-xl font-bold">${student.name}</p>
+                            <p class="text-gray-600">Class: ${student.class} | Roll No: ${student.rollNumber}</p>
+                        </div>
+                        <div class="space-y-2 mb-6">
+                            ${marksHtml}
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sky-700">Teacher's Remark:</h4>
+                            <p class="text-gray-600 italic">"${student.teacherRemark}"</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultCard.innerHTML = `
+                    <div class="bg-red-100 p-8 rounded-2xl shadow-lg text-center border-2 border-red-300">
+                        <h3 class="text-2xl font-bold text-red-700">Result Not Found</h3>
+                        <p class="text-red-600 mt-2">Please check the Roll Number and try again.</p>
+                    </div>
+                `;
+            }
+        });
+
+    </script>
 </body>
 </html>
-
-
 
